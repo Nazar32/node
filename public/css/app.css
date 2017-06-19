@@ -1,0 +1,66 @@
+body {
+    background: #ECEEEF;
+    margin: 100px auto;
+    max-width: 720px;
+    padding: 0 40px;
+    font: 18px normal Arial, Helvetica, serif;
+    color: #777B7E;
+    text-align: center;
+}
+
+p {
+    line-height: 1.5;
+}
+
+input, button {
+    font-family: Arial, Helvetica, serif;
+    font-size: 18px;
+    padding: 30px 0;
+    margin: 10px 0;
+    text-align: center;
+    width: 360px;
+    border-radius: 4px;
+    border: 1px solid #D5DDE4;
+    color: #2C3238;
+}
+
+button {
+    border-color: #c75c5c;
+    background: #c75c5c;
+    color: #fff;
+    cursor: pointer;
+}
+
+a, a:visited {
+    color: #c75c5c;
+    text-decoration: none;
+}
+
+.card {
+    display: flex;
+    background: #fff;
+    border-radius: 4px;
+    border: 1px solid #D5DDE4;
+    overflow: hidden;
+    text-align: left;
+}
+
+.card .card-media {
+    display: flex;
+    min-width: 300px;
+}
+
+.card .card-content {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.card .card-title {
+    margin-top: 0;
+}
+
+.card .card-content a {
+    margin-top: auto;
+    margin-left: auto;
+}
