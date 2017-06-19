@@ -1,5 +1,6 @@
+'use strict';
 const http = require('http');
-const publicRoute = require('./public');
+const publicRoute = require('./routes/public');
 const os = require("os");
 
 http.createServer((req, res) => {
@@ -10,4 +11,4 @@ http.createServer((req, res) => {
     } else if (req.url === '/search') {
 
     }
-}).listen(3001, () => { console.log(`Runs on: http://${os.hostname()}:3001`) });
+}).listen(3001, () => { console.log(`Sever runs`) });
