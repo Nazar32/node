@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 const fs = require('fs');
 const path = require('path');
@@ -25,7 +25,7 @@ function publicRoute(req, res) {
             contentType = 'text/plain';
             break;
     }
-
+        
     res.statusCode = 200;
     res.setHeader('Content-Type', contentType);
 
