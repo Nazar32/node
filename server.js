@@ -1,14 +1,16 @@
 'use strict';
+
 const http = require('http');
-const publicRoute = require('./routes/public');
-const os = require("os");
+const publicRoute = require('./routes/publicRoute');
 
 http.createServer((req, res) => {
-    if (req.url.match('/.(html|css|js|png|jpg)$/')) {
+    if (req.url.match('^.*\.(css|html|jpg|JPG|gif|GIF|doc|DOC|pdf|PDF)$')) {
         publicRoute(req, res);
     } else if (req.url === '/') {
-
-    } else if (req.url === '/search') {
-
+        
+    } else if (req.url.startsWith('/search')) {
+        
+    } else {
+        
     }
-}).listen(3001, () => { console.log(`Sever runs`) });
+}).listen(8080, () => console.log('Server runs'));
