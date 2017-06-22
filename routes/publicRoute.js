@@ -20,24 +20,28 @@ function publicRoute(req, res) {
             break;
         case '.png':
             contentType = 'text/png';
-            break;        
+            break;
         default:
             contentType = 'text/plain';
             break;
     }
-        
+
     res.statusCode = 200;
     res.setHeader('Content-Type', contentType);
 
-    const stream = fs.createReadStream(path.resolve('public', fileName));        
+    const stream = fs.createReadStream(path.resolve('public', fileName));
     stream.pipe(res);
     stream.on('error', err => {
         console.log(err);
         if (err.code === 'ENOENT') {
-            res.writeHead(404, { 'Content-Type': 'text/plain' });
+            res.writeHead(404, {
+                'Content-Type': 'text/plain'
+            });
             res.end('Not found');
         } else {
-            res.writeHead(500, { 'Content-Type': 'text/plain' });
+            res.writeHead(500, {
+                'Content-Type': 'text/plain'
+            });
             res.end(err.message);
         }
     });
