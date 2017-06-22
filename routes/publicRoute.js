@@ -8,6 +8,7 @@ function publicRoute(req, res) {
     const fileName = req.url.slice(1);
 
     let contentType = '';
+    let isImage = false;
     switch (extension) {
         case '.html':
             contentType = 'text/html';
@@ -18,8 +19,9 @@ function publicRoute(req, res) {
         case '.js':
             contentType = 'text/javascript';
             break;
-        case '.png':
-            contentType = 'text/png';
+        case '.png':    
+            contentType = 'image/png';
+            isImage = true;
             break;
         default:
             contentType = 'text/plain';
@@ -27,8 +29,7 @@ function publicRoute(req, res) {
     }
 
     res.statusCode = 200;
-    res.setHeader('Content-Type', contentType);
-
+    res.setHeader('Content-Type', contentType);    
     const stream = fs.createReadStream(path.resolve('public', fileName));
     stream.pipe(res);
     stream.on('error', err => {
