@@ -33,7 +33,6 @@ function publicRoute(req, res) {
     const stream = fs.createReadStream(path.resolve('public', fileName));
     stream.pipe(res);
     stream.on('error', err => {
-        console.log(err);
         if (err.code === 'ENOENT') {
             res.writeHead(404, {
                 'Content-Type': 'text/plain'
