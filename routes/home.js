@@ -1,11 +1,17 @@
 const fs = require('fs');
 const path = require('path');
+const render = require('../lib/render');
 
 function home(res) {    
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'text/html');
-    const stream = fs.createReadStream(path.resolve('public', 'index.html'));    
-    stream.pipe(res);
+     render('index.html', null, (error, html) => {
+            if (error) {
+                res.writeHead(500, {'Content-Type': 'text/plain'});
+                return res.end(error.message);
+            }
+            res.statusCode = 200;
+            res.setHeader('Content-Type', 'text/html');
+            res.end(html);            
+        });    
 }
 
 module.exports = home;
